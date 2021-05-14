@@ -70,6 +70,7 @@ class _HomePageState extends State<HomePage> {
                                 name: products[index]['name'],
                                 img: products[index]['img'],
                                 price: products[index]['price'],
+                                stock: products[index]['stock'],
                                 mulImg: products[index]['mul_img'],
                                 sizes: products[index]['sizes'],
                               )));

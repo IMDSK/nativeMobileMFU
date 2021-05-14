@@ -9,6 +9,7 @@ class ProductDetailPage extends StatefulWidget {
   final String name;
   final String img;
   final String price;
+  final String stock;
   final List mulImg;
   final List sizes;
 
@@ -18,6 +19,7 @@ class ProductDetailPage extends StatefulWidget {
       this.name,
       this.img,
       this.price,
+      this.stock,
       this.mulImg,
       this.sizes})
       : super(key: key);
@@ -128,7 +130,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                   FadeInDown(
                     delay: Duration(milliseconds: 450),
                     child: Text(
-                      "Size Guide",
+                      "In Stock " + widget.stock,
                       style: TextStyle(
                           fontSize: 15, color: black.withOpacity(0.7)),
                     ),

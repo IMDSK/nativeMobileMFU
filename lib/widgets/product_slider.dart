@@ -67,12 +67,14 @@ class _ProductSliderState extends State<ProductSlider> {
             height: 300,
             width: MediaQuery.of(context).size.width,
             child: CarouselSlider(
-              onPageChanged: (index) {
-                setActiveDot(index);
-              },
-              autoPlayCurve: Curves.fastLinearToSlowEaseIn,
-              autoPlayAnimationDuration: Duration(seconds: 2),
-              viewportFraction: 1.0,
+              options: CarouselOptions(
+                onPageChanged: (index, reason) {
+                  setActiveDot(index);
+                },
+                autoPlayCurve: Curves.fastLinearToSlowEaseIn,
+                autoPlayAnimationDuration: Duration(seconds: 2),
+                viewportFraction: 1.0,
+              ),
               items: widget.items.map((item) {
                 return Builder(
                   builder: (BuildContext context) {
