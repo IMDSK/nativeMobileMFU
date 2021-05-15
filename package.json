@@ -1,0 +1,27 @@
+{
+  "name": "nativemobilemfu",
+  "version": "1.0.0",
+  "description": "- [Support me on Patreon](https://www.patreon.com/sopheamenvan?fan_landing=true)\r - [Watch on youtube](https://youtu.be/SJDOAWb-dVQ)",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IMDSK/nativeMobileMFU.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IMDSK/nativeMobileMFU/issues"
+  },
+  "homepage": "https://github.com/IMDSK/nativeMobileMFU#readme",
+  "dependencies": {
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.7"
+  }
+}
