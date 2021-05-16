@@ -69,8 +69,9 @@ class _HomePageState extends State<HomePage> {
                                 id: products[index]['id'].toString(),
                                 name: products[index]['name'],
                                 img: products[index]['img'],
-                                price: products[index]['price'],
+                                price: products[index]['price'].toString(),
                                 stock: products[index]['stock'],
+                                amount: products[index]['amount'],
                                 mulImg: products[index]['mul_img'],
                                 sizes: products[index]['sizes'],
                               )));
@@ -113,7 +114,7 @@ class _HomePageState extends State<HomePage> {
                             height: 15,
                           ),
                           Text(
-                            "\$ " + products[index]['price'],
+                            "\$ " + products[index]['price'].toString(),
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.w500),
                           ),

@@ -1,10 +1,11 @@
 List products = [
   {
-    "id": 1,
+    "id": "1",
     "img": "chicagomain.jpg",
     "name": "Off-White Chicago",
-    "price": "4910",
+    "price": 4910,
     "stock": "2",
+    "amout": "0",
     "mul_img": [
       "chicagomain.jpg",
       "chicago1.jpg",
@@ -21,11 +22,12 @@ List products = [
     ],
   },
   {
-    "id": 2,
+    "id": "2",
     "img": "nrgmain.jpg",
     "name": "Off-White NRG",
-    "price": "1350",
+    "price": 1350,
     "stock": "2",
+    "amout": "0",
     "mul_img": [
       "nrgmain.jpg",
       "nrg1.jpg",
@@ -40,11 +42,12 @@ List products = [
     ],
   },
   {
-    "id": 3,
+    "id": "3",
     "img": "uncmain.jpg",
     "name": "Off-White UNC",
-    "price": "1460",
+    "price": 1460,
     "stock": "2",
+    "amout": "0",
     "mul_img": [
       "uncmain.jpg",
       "unc2.jpg",

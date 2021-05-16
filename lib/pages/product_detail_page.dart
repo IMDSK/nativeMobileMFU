@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:nativeMobile/theme/colors.dart';
 import 'package:nativeMobile/widgets/product_slider.dart';
+import 'package:nativeMobile/controllers/productController.dart';
+import 'package:get/get.dart';
 
 class ProductDetailPage extends StatefulWidget {
   final String id;
@@ -10,6 +12,7 @@ class ProductDetailPage extends StatefulWidget {
   final String img;
   final String price;
   final String stock;
+  final int amount;
   final List mulImg;
   final List sizes;
 
@@ -20,6 +23,7 @@ class ProductDetailPage extends StatefulWidget {
       this.img,
       this.price,
       this.stock,
+      this.amount,
       this.mulImg,
       this.sizes})
       : super(key: key);
