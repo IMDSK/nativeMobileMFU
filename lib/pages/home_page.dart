@@ -36,21 +36,6 @@ class _HomePageState extends State<HomePage> {
                 "Shoes",
                 style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
               ),
-              Row(
-                children: <Widget>[
-                  Text(
-                    "Sort by",
-                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
-                  ),
-                  SizedBox(
-                    width: 8,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 5),
-                    child: Icon(Icons.keyboard_arrow_down),
-                  )
-                ],
-              )
             ],
           ),
         ),
