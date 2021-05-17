@@ -4,7 +4,7 @@ List products = [
     "img": "chicagomain.jpg",
     "name": "Off-White Chicago",
     "price": 4910,
-    "stock": "2",
+    "stock": 2,
     "amout": "0",
     "mul_img": [
       "chicagomain.jpg",
@@ -26,7 +26,7 @@ List products = [
     "img": "nrgmain.jpg",
     "name": "Off-White NRG",
     "price": 1350,
-    "stock": "2",
+    "stock": 2,
     "amout": "0",
     "mul_img": [
       "nrgmain.jpg",
@@ -46,7 +46,7 @@ List products = [
     "img": "uncmain.jpg",
     "name": "Off-White UNC",
     "price": 1460,
-    "stock": "2",
+    "stock": 2,
     "amout": "0",
     "mul_img": [
       "uncmain.jpg",

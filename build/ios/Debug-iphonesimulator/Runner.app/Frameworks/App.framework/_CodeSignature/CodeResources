@@ -10,7 +10,7 @@
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		HlO59gN2SuHJoZNOCe80jlnIgI0=
+		1L4LEwcqDR1IJVJg5owmISwzRgU=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
@@ -47,6 +47,10 @@
 		<key>flutter_assets/assets/images/chicagomain.jpg</key>
 		<data>
 		gEDd8qg/bXCCsU0YXxOg89qTJiY=
+		</data>
+		<key>flutter_assets/assets/images/delete.svg</key>
+		<data>
+		HDUHQeu8JNln7c/lZJXpds1SMJM=
 		</data>
 		<key>flutter_assets/assets/images/filter_icon.svg</key>
 		<data>
@@ -102,7 +106,7 @@
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		29TlxwCEZL15yJvB7jX/U4ixm5E=
+		FRVEkkObf6jDLwLTi2N0JmRSbPI=
 		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -123,11 +127,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			HlO59gN2SuHJoZNOCe80jlnIgI0=
+			1L4LEwcqDR1IJVJg5owmISwzRgU=
 			</data>
 			<key>hash2</key>
 			<data>
-			p0GOCmiNUMrCT6qUULzwECEFaKVqPjoghlwkr3fYggI=
+			/1d6AgIi47yHqiK+Z8gO56sFAEODzGy7y4rMlijLEQ8=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
@@ -227,6 +231,17 @@
 			<key>hash2</key>
 			<data>
 			BVm7H+j839aneQzrAZAnZL1goqfOzUugF5KZgAxoR+M=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/images/delete.svg</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			HDUHQeu8JNln7c/lZJXpds1SMJM=
+			</data>
+			<key>hash2</key>
+			<data>
+			WHfGK6NHQwgdMDpJcBmnwaoA2Pd5ansuHan3tz3pH9U=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/images/filter_icon.svg</key>
@@ -376,11 +391,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			29TlxwCEZL15yJvB7jX/U4ixm5E=
+			FRVEkkObf6jDLwLTi2N0JmRSbPI=
 			</data>
 			<key>hash2</key>
 			<data>
-			xxx/mqD8Jcpjdv6vAmKgMEfzfjzZJ2dhJKvcn0SAffc=
+			YiS8YL7C8Yj6bYYlIdlxcQfNgpTri8oaRKtrXcdHwl8=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>

@@ -92,25 +92,25 @@ class _FavPageState extends State<FavPage> {
                                   fontSize: 15, fontWeight: FontWeight.w500),
                             ),
                             Container(
-                              width: 50,
-                              height: 50,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  boxShadow: [
-                                    BoxShadow(
-                                        spreadRadius: 0.5,
-                                        blurRadius: 1,
-                                        color: black.withOpacity(0.1))
-                                  ],
-                                  color: grey),
-                              child: Center(
-                                child: SvgPicture.asset(
-                                    "assets/images/delete.svg",
-                                    color: Colors.red,
-                                    height: 20,
-                                    width: 20),
-                              ),
-                            ),
+                                width: 50,
+                                height: 50,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    boxShadow: [
+                                      BoxShadow(
+                                          spreadRadius: 0.5,
+                                          blurRadius: 1,
+                                          color: black.withOpacity(0.1))
+                                    ],
+                                    color: grey),
+                                child: Center(
+                                    child: IconButton(
+                                        icon: SvgPicture.asset(
+                                            "assets/images/delete.svg",
+                                            color: Colors.red,
+                                            height: 20,
+                                            width: 20),
+                                        onPressed: null))),
                           ],
                         )
                       ],

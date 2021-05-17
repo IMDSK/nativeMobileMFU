@@ -4,16 +4,21 @@ import 'package:flutter_svg/svg.dart';
 import 'package:nativeMobile/constant/product_data.dart';
 import 'package:nativeMobile/pages/cart_page.dart';
 import 'package:nativeMobile/pages/product_detail_page.dart';
+import 'package:nativeMobile/controllers/productController.dart';
 
 import 'package:nativeMobile/theme/colors.dart';
 import 'package:nativeMobile/widgets/app_bar.dart';
+import 'package:get/get.dart';
 
 class HomePage extends StatefulWidget {
+  // final ProductController _productController = Get.put(ProductController());
+  final ProductController productList = Get.put(ProductController());
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
+  final ProductController _productController = Get.find();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,104 +29,119 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget getBody() {
-    return ListView(
-      children: <Widget>[
-        Padding(
-          padding:
-              const EdgeInsets.only(top: 40, left: 30, right: 30, bottom: 20),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Text(
-                "Shoes",
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
-              ),
-            ],
-          ),
-        ),
-        Column(
-            children: List.generate(products.length, (index) {
-          return FadeInDown(
-            duration: Duration(milliseconds: 350 * index),
-            child: Padding(
-              padding: const EdgeInsets.all(6.0),
-              child: InkWell(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (_) => ProductDetailPage(
-                                id: products[index]['id'].toString(),
-                                name: products[index]['name'],
-                                img: products[index]['img'],
-                                price: products[index]['price'].toString(),
-                                stock: products[index]['stock'],
-                                amount: products[index]['amount'],
-                                mulImg: products[index]['mul_img'],
-                                sizes: products[index]['sizes'],
-                              )));
-                },
-                child: Container(
-                    child: Stack(
-                  children: <Widget>[
-                    Container(
-                      decoration: BoxDecoration(
-                          color: grey,
-                          borderRadius: BorderRadius.circular(20),
-                          boxShadow: [
-                            BoxShadow(
-                                spreadRadius: 1,
-                                color: black.withOpacity(0.1),
-                                blurRadius: 2)
-                          ]),
-                      child: Column(
-                        children: <Widget>[
-                          Center(
-                            child: Container(
-                              width: 280,
-                              height: 180,
-                              decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                      image: AssetImage("assets/images/" +
-                                          products[index]['img']),
-                                      fit: BoxFit.cover)),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 15,
-                          ),
-                          Text(
-                            products[index]['name'],
-                            style: TextStyle(
-                                fontSize: 17, fontWeight: FontWeight.w600),
-                          ),
-                          SizedBox(
-                            height: 15,
-                          ),
-                          Text(
-                            "\$ " + products[index]['price'].toString(),
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.w500),
-                          ),
-                          SizedBox(
-                            height: 25,
-                          )
-                        ],
-                      ),
+    return GetBuilder<ProductController>(
+      init: ProductController(),
+      builder: (_) => ListView.builder(
+          itemCount: _productController.productList.length,
+          itemBuilder: (context, index) {
+            return ListView(
+                shrinkWrap: true,
+                scrollDirection: Axis.vertical,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        top: 40, left: 30, right: 30, bottom: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          "Shoes",
+                          style: TextStyle(
+                              fontSize: 30, fontWeight: FontWeight.w600),
+                        ),
+                      ],
                     ),
-                    Positioned(
-                        right: 10,
-                        child: IconButton(
-                            icon: SvgPicture.asset(
-                                "assets/images/heart_icon.svg"),
-                            onPressed: null))
-                  ],
-                )),
-              ),
-            ),
-          );
-        }))
-      ],
+                  ),
+                  Column(
+                      children: List.generate(products.length, (index) {
+                    return FadeInDown(
+                      duration: Duration(milliseconds: 350 * index),
+                      child: Padding(
+                        padding: const EdgeInsets.all(6.0),
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (_) => ProductDetailPage(
+                                          id: products[index]['id'].toString(),
+                                          name: products[index]['name'],
+                                          img: products[index]['img'],
+                                          price: products[index]['price']
+                                              .toString(),
+                                          stock: products[index]['stock']
+                                              .toString(),
+                                          amount: products[index]['amount'],
+                                          mulImg: products[index]['mulImg'],
+                                          sizes: products[index]['sizes'],
+                                        )));
+                          },
+                          child: Container(
+                              child: Stack(
+                            children: <Widget>[
+                              Container(
+                                decoration: BoxDecoration(
+                                    color: grey,
+                                    borderRadius: BorderRadius.circular(20),
+                                    boxShadow: [
+                                      BoxShadow(
+                                          spreadRadius: 1,
+                                          color: black.withOpacity(0.1),
+                                          blurRadius: 2)
+                                    ]),
+                                child: Column(
+                                  children: <Widget>[
+                                    Center(
+                                      child: Container(
+                                        width: 280,
+                                        height: 180,
+                                        decoration: BoxDecoration(
+                                            image: DecorationImage(
+                                                image: AssetImage(
+                                                  'assets/images/${_productController.productList[index].img}',
+                                                ),
+                                                fit: BoxFit.cover)),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 15,
+                                    ),
+                                    Text(
+                                      ('${_productController.productList[index].name}'),
+                                      style: TextStyle(
+                                          fontSize: 17,
+                                          fontWeight: FontWeight.w600),
+                                    ),
+                                    SizedBox(
+                                      height: 15,
+                                    ),
+                                    Text(
+                                      ('${_productController.productList[index].price} ' +
+                                          'Dollar'),
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w500),
+                                    ),
+                                    SizedBox(
+                                      height: 25,
+                                    )
+                                  ],
+                                ),
+                              ),
+                              Positioned(
+                                  right: 10,
+                                  child: IconButton(
+                                      icon: SvgPicture.asset(
+                                          "assets/images/heart_icon.svg"),
+                                      onPressed: null))
+                            ],
+                          )),
+                        ),
+                      ),
+                    );
+                  }))
+                ]);
+          }),
     );
   }
 }

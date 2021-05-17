@@ -26,7 +26,7 @@ class _CartPageState extends State<CartPage> {
         Padding(
           padding: EdgeInsets.only(top: 40, left: 30, right: 30, bottom: 30),
           child: Text(
-            "My Bag",
+            "My Cart",
             style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
           ),
         ),
