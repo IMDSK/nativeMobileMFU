@@ -63,18 +63,7 @@ class _HomePageState extends State<HomePage> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (_) => ProductDetailPage(
-                                          id: products[index]['id'].toString(),
-                                          name: products[index]['name'],
-                                          img: products[index]['img'],
-                                          price: products[index]['price']
-                                              .toString(),
-                                          stock: products[index]['stock']
-                                              .toString(),
-                                          amount: products[index]['amount'],
-                                          mulImg: products[index]['mulImg'],
-                                          sizes: products[index]['sizes'],
-                                        )));
+                                    builder: (_) => ProductDetailPage()));
                           },
                           child: Container(
                               child: Stack(

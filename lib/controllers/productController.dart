@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 
 class ProductController extends GetxController {
   // List of products in shop, static
-  // var productList = <ProductItem>[];
+  // var productList = List<ProductItem>().obs;
   List<ProductItem> productList = [];
 
   ProductController();
@@ -40,7 +40,7 @@ class ProductController extends GetxController {
         ],
       ),
       ProductItem(
-        id: "1",
+        id: "2",
         img: "nrgmain.jpg",
         name: "Off-White NRG",
         price: 1350,
@@ -60,7 +60,7 @@ class ProductController extends GetxController {
         ],
       ),
       ProductItem(
-        id: "1",
+        id: "3",
         img: "uncmain.jpg",
         name: "Off-White UNC",
         price: 1460,
