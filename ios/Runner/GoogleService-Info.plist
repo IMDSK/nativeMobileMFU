@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1096987349897-c40b0d33ufsdctg610b6gkis160li44d.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1096987349897-c40b0d33ufsdctg610b6gkis160li44d</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBkh4KWQkQ3HIEINRemfyd9i8VXaWUK2Ik</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1096987349897</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.run.navtivemobile</string>
+	<key>PROJECT_ID</key>
+	<string>navtivemobileporject</string>
+	<key>STORAGE_BUCKET</key>
+	<string>navtivemobileporject.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1096987349897:ios:e133a4b22e50c54e3b4758</string>
+</dict>
+</plist>
