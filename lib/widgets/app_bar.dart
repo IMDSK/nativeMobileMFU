@@ -36,8 +36,8 @@ Widget getAppBar(context) {
                       BoxDecoration(color: black, shape: BoxShape.circle),
                 ),
                 onPressed: () {
-                  Navigator.pushReplacement(
-                      context, MaterialPageRoute(builder: (_) => CartPage()));
+                  // Navigator.pushReplacement(
+                  //     context, MaterialPageRoute(builder: (_) => CartPage()));
                 }),
             IconButton(
                 icon: Container(
@@ -55,8 +55,8 @@ Widget getAppBar(context) {
                   ),
                 ),
                 onPressed: () {
-                  Navigator.pushReplacement(
-                      context, MaterialPageRoute(builder: (_) => FavPage()));
+                  // Navigator.pushReplacement(
+                  //     context, MaterialPageRoute(builder: (_) => FavPage()));
                 }),
           ],
         )

@@ -1,8 +1,9 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:nativeMobile/constant/product_data.dart';
+// import 'package:nativeMobile/constant/product_data.dart';
 import 'package:nativeMobile/pages/cart_page.dart';
+import 'package:nativeMobile/model/product_model.dart';
 import 'package:nativeMobile/pages/product_detail_page.dart';
 import 'package:nativeMobile/controllers/productController.dart';
 
@@ -12,13 +13,13 @@ import 'package:get/get.dart';
 
 class HomePage extends StatefulWidget {
   // final ProductController _productController = Get.put(ProductController());
-  final ProductController productList = Get.put(ProductController());
+  final ProductsController productList = Get.put(ProductsController());
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  final ProductController _productController = Get.find();
+  final ProductsController _productController = Get.find();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,10 +30,10 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget getBody() {
-    return GetBuilder<ProductController>(
-      init: ProductController(),
+    return GetBuilder<ProductsController>(
+      init: ProductsController(),
       builder: (_) => ListView.builder(
-          itemCount: _productController.productList.length,
+          itemCount: _productController.products.length,
           itemBuilder: (context, index) {
             return ListView(
                 shrinkWrap: true,
@@ -53,7 +54,8 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   Column(
-                      children: List.generate(products.length, (index) {
+                      children: List.generate(
+                          _productController.products.length, (index) {
                     return FadeInDown(
                       duration: Duration(milliseconds: 350 * index),
                       child: Padding(
@@ -87,7 +89,7 @@ class _HomePageState extends State<HomePage> {
                                         decoration: BoxDecoration(
                                             image: DecorationImage(
                                                 image: AssetImage(
-                                                  'assets/images/${_productController.productList[index].img}',
+                                                  '${_productController.products[index].imageMain}',
                                                 ),
                                                 fit: BoxFit.cover)),
                                       ),
@@ -96,7 +98,7 @@ class _HomePageState extends State<HomePage> {
                                       height: 15,
                                     ),
                                     Text(
-                                      ('${_productController.productList[index].name}'),
+                                      ('${_productController.products[index].name}'),
                                       style: TextStyle(
                                           fontSize: 17,
                                           fontWeight: FontWeight.w600),
@@ -105,7 +107,7 @@ class _HomePageState extends State<HomePage> {
                                       height: 15,
                                     ),
                                     Text(
-                                      ('${_productController.productList[index].price} ' +
+                                      ('${_productController.products[index].price} ' +
                                           'Dollar'),
                                       style: TextStyle(
                                           fontSize: 16,

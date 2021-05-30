@@ -1,200 +1,221 @@
-import 'package:flutter/material.dart';
-import 'package:nativeMobile/model/product_model.dart';
+import 'dart:async';
 import 'package:get/get.dart';
+import 'package:nativeMobile/constant/firebase.dart';
+import 'package:nativeMobile/model/product_model.dart';
 
-class ProductController extends GetxController {
-  // List of products in shop, static
-  // var productList = List<ProductItem>().obs;
-  List<ProductItem> productList = [];
+class ProductsController extends GetxController {
+  static ProductsController instance = Get.find();
+  RxList<ProductModel> products = RxList<ProductModel>([]);
+  String collection = "products";
 
-  ProductController();
-
-  // List of product in cart, dynamic
-  var cartList = <ProductItem>[].obs;
-  var totalPrice = 0.0.obs;
-
-// load data first
   @override
-  void onInit() {
-    productList = [
-      ProductItem(
-        id: "1",
-        img: "chicagomain.jpg",
-        name: "Off-White Chicago",
-        price: 4910,
-        stock: 2,
-        amount: 0,
-        mulImg: [
-          "chicagomain.jpg",
-          "chicago1.jpg",
-          "chicago2.jpg",
-          "chicago3.jpg"
-        ],
-        sizes: [
-          "40",
-          "41",
-          "41,5",
-          "42",
-          "43",
-          "44",
-        ],
-      ),
-      ProductItem(
-        id: "2",
-        img: "nrgmain.jpg",
-        name: "Off-White NRG",
-        price: 1350,
-        stock: 2,
-        amount: 0,
-        mulImg: [
-          "nrgmain.jpg",
-          "nrg1.jpg",
-        ],
-        sizes: [
-          "40",
-          "41",
-          "41,5",
-          "42",
-          "43",
-          "44",
-        ],
-      ),
-      ProductItem(
-        id: "3",
-        img: "uncmain.jpg",
-        name: "Off-White UNC",
-        price: 1460,
-        stock: 2,
-        amount: 0,
-        mulImg: [
-          "uncmain.jpg",
-          "unc2.jpg",
-          "unc1.jpg",
-        ],
-        sizes: [
-          "40",
-          "41",
-          "41,5",
-          "42",
-          "43",
-          "44",
-        ],
-      ),
-    ];
-    update();
-    super.onInit();
+  onReady() {
+    super.onReady();
+    products.bindStream(getAllProducts());
   }
 
-  List get myitems => [...productList];
-
-  ProductItem findById(String id) {
-    return productList.firstWhere((prod) => prod.id == id);
-  }
-
-  void addProduct() {
-//    _items.add(value);
-    update();
-  }
+  Stream<List<ProductModel>> getAllProducts() =>
+      firebaseFirestore.collection(collection).snapshots().map((query) =>
+          query.docs.map((item) => ProductModel.fromMap(item.data())).toList());
 }
 
-// if no products
-// if (productList.isEmpty) {
-//   productList.add(ProductItem(
-//     img: "chicagomain",
-//     name: 'Off-White Chicago',
-//     price: 4910,
-//   ));
-//   productList.add(ProductItem(
-//     img: "nrgmain",
-//     name: 'Off-White NRG',
-//     price: 1350,
-//   ));
-//   productList.add(ProductItem(
-//     img: "uncmain",
-//     name: 'Off-White UNC',
-//     price: 1460,
-//   ));
-// }
-// }
-// void onInit() {
-//   super.onInit();
-//   print('==============> Load data');
+// import 'package:flutter/material.dart';
+// import 'package:nativeMobile/model/product_model.dart';
+// import 'package:get/get.dart';
 
-//   // if no products
-//   if (productList.isEmpty) {
-//     productList.add(ProductItem(
-//       img: "chicagomain",
-//       name: 'Off-White Chicago',
-//       price: 4910,
-//     ));
-//     productList.add(ProductItem(
-//       img: "nrgmain",
-//       name: 'Off-White NRG',
-//       price: 1350,
-//     ));
-//     productList.add(ProductItem(
-//       img: "uncmain",
-//       name: 'Off-White UNC',
-//       price: 1460,
-//     ));
+// class ProductController extends GetxController {
+//   // List of products in shop, static
+//   // var productList = List<ProductItem>().obs;
+//   List<ProductItem> productList = [];
+
+//   ProductController();
+
+//   // List of product in cart, dynamic
+//   var cartList = <ProductItem>[].obs;
+//   var totalPrice = 0.0.obs;
+
+// // load data first
+//   @override
+//   void onInit() {
+//     productList = [
+//       ProductItem(
+//         id: "1",
+//         img: "chicagomain.jpg",
+//         name: "Off-White Chicago",
+//         price: 4910,
+//         stock: 2,
+//         amount: 0,
+//         mulImg: [
+//           "chicagomain.jpg",
+//           "chicago1.jpg",
+//           "chicago2.jpg",
+//           "chicago3.jpg"
+//         ],
+//         sizes: [
+//           "40",
+//           "41",
+//           "41,5",
+//           "42",
+//           "43",
+//           "44",
+//         ],
+//       ),
+//       ProductItem(
+//         id: "2",
+//         img: "nrgmain.jpg",
+//         name: "Off-White NRG",
+//         price: 1350,
+//         stock: 3,
+//         amount: 0,
+//         mulImg: [
+//           "nrgmain.jpg",
+//           "nrg1.jpg",
+//         ],
+//         sizes: [
+//           "40",
+//           "41",
+//           "41,5",
+//           "42",
+//           "43",
+//           "44",
+//         ],
+//       ),
+//       ProductItem(
+//         id: "3",
+//         img: "uncmain.jpg",
+//         name: "Off-White UNC",
+//         price: 1460,
+//         stock: 4,
+//         amount: 0,
+//         mulImg: [
+//           "uncmain.jpg",
+//           "unc2.jpg",
+//           "unc1.jpg",
+//         ],
+//         sizes: [
+//           "40",
+//           "41",
+//           "41,5",
+//           "42",
+//           "43",
+//           "44",
+//         ],
+//       ),
+//     ];
+//     update();
+//     super.onInit();
+//   }
+
+//   List get myitems => [...productList];
+
+//   ProductItem findById(String id) {
+//     return productList.firstWhere((prod) => prod.id == id);
+//   }
+
+//   void addProduct() {
+// //    _items.add(value);
+//     update();
 //   }
 // }
 
-//   void addToCart(int index) {
-//     print('==============> add product');
+// // if no products
+// // if (productList.isEmpty) {
+// //   productList.add(ProductItem(
+// //     img: "chicagomain",
+// //     name: 'Off-White Chicago',
+// //     price: 4910,
+// //   ));
+// //   productList.add(ProductItem(
+// //     img: "nrgmain",
+// //     name: 'Off-White NRG',
+// //     price: 1350,
+// //   ));
+// //   productList.add(ProductItem(
+// //     img: "uncmain",
+// //     name: 'Off-White UNC',
+// //     price: 1460,
+// //   ));
+// // }
+// // }
+// // void onInit() {
+// //   super.onInit();
+// //   print('==============> Load data');
 
-//     // is cart empty ?
-//     if (cartList.isEmpty) {
-//       cartList.add(productList[index]);
-//       cartList[0].amount = 1;
-//       totalPrice.value += cartList[0].price;
-//       return;
-//     }
+// //   // if no products
+// //   if (productList.isEmpty) {
+// //     productList.add(ProductItem(
+// //       img: "chicagomain",
+// //       name: 'Off-White Chicago',
+// //       price: 4910,
+// //     ));
+// //     productList.add(ProductItem(
+// //       img: "nrgmain",
+// //       name: 'Off-White NRG',
+// //       price: 1350,
+// //     ));
+// //     productList.add(ProductItem(
+// //       img: "uncmain",
+// //       name: 'Off-White UNC',
+// //       price: 1460,
+// //     ));
+// //   }
+// // }
 
-//     // the product exists or not?
-//     int i = 0;
-//     for (i = 0; i < cartList.length; i++) {
-//       if (cartList[i].name == productList[index].name) {
-//         // prodect exits
-//         cartList[i].amount++;
-//         totalPrice.value += cartList[i].price;
+// //   void addToCart(int index) {
+// //     print('==============> add product');
 
-//         break;
-//       }
-//     }
+// //     // is cart empty ?
+// //     if (cartList.isEmpty) {
+// //       cartList.add(productList[index]);
+// //       cartList[0].amount = 1;
+// //       totalPrice.value += cartList[0].price;
+// //       return;
+// //     }
 
-//     if (i == cartList.length) {
-//       // product does not exist in cart
-//       cartList.add(productList[index]);
-//       cartList.last.amount = 1;
-//       totalPrice.value += cartList.last.price;
-//     }
+// //     // the product exists or not?
+// //     int i = 0;
+// //     for (i = 0; i < cartList.length; i++) {
+// //       if (cartList[i].name == productList[index].name) {
+// //         // prodect exits
+// //         cartList[i].amount++;
+// //         totalPrice.value += cartList[i].price;
 
-//     print('Cart leng ${cartList.length}');
-//   }
+// //         break;
+// //       }
+// //     }
 
-//   void deleteProduct(int index) {
-//     // cartList[index].amount--;
+// //     if (i == cartList.length) {
+// //       // product does not exist in cart
+// //       cartList.add(productList[index]);
+// //       cartList.last.amount = 1;
+// //       totalPrice.value += cartList.last.price;
+// //     }
 
-//     // delete a unit of product from cart
-//     if (cartList[index].amount > 1) {
-//       var product = cartList[index];
-//       product.amount--;
-//       cartList[index] = product;
-//     } else {
-//       cartList.removeAt(index);
-//     }
-//   }
+// //     print('Cart leng ${cartList.length}');
+// //   }
 
-//   totoal() {
-//     var testTotal = 0.0.obs;
+// //   void deleteProduct(int index) {
+// //     // cartList[index].amount--;
 
-//     for (int i = 0; i < cartList.length; i++) {
-//       testTotal.value += cartList[i].amount * cartList[i].price;
-//       print('================== ${testTotal}');
-//       print(cartList[i].price);
-//     }
+// //     // delete a unit of product from cart
+// //     if (cartList[index].amount > 1) {
+// //       var product = cartList[index];
+// //       product.amount--;
+// //       cartList[index] = product;
+// //     } else {
+// //       cartList.removeAt(index);
+// //     }
+// //   }
 
-//     return testTotal;
-//   }
-// }
+// //   totoal() {
+// //     var testTotal = 0.0.obs;
+
+// //     for (int i = 0; i < cartList.length; i++) {
+// //       testTotal.value += cartList[i].amount * cartList[i].price;
+// //       print('================== ${testTotal}');
+// //       print(cartList[i].price);
+// //     }
+
+// //     return testTotal;
+// //   }
+// // }

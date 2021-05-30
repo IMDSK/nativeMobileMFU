@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1096987349897",
+    "project_id": "navtivemobileporject",
+    "storage_bucket": "navtivemobileporject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1096987349897:android:0af8dbf9683f787e3b4758",
+        "android_client_info": {
+          "package_name": "com.example.nativemobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1096987349897-gotu2picn0hjue8ff1p9sp9m9hodqbqd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2zAZxntK1DJ6U28ESxyxIUQe69OSkfRg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1096987349897-gotu2picn0hjue8ff1p9sp9m9hodqbqd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

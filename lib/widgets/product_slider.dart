@@ -42,14 +42,14 @@ class InactiveDot extends StatelessWidget {
  * for slider home page
  */
 class ProductSlider extends StatefulWidget {
-  final ProductController productList = Get.put(ProductController());
+  final ProductsController productList = Get.put(ProductsController());
 
   @override
   _ProductSliderState createState() => _ProductSliderState();
 }
 
 class _ProductSliderState extends State<ProductSlider> {
-  final ProductController _productController = Get.find();
+  final ProductsController _productController = Get.find();
   int activeIndex = 0;
   setActiveDot(index) {
     setState(() {
@@ -59,8 +59,8 @@ class _ProductSliderState extends State<ProductSlider> {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<ProductController>(
-      init: ProductController(),
+    return GetBuilder<ProductsController>(
+      init: ProductsController(),
       builder: (_) => Padding(
         padding: const EdgeInsets.only(bottom: 30),
         child: Column(
@@ -70,7 +70,7 @@ class _ProductSliderState extends State<ProductSlider> {
               height: 300,
               width: MediaQuery.of(context).size.width,
               child: CarouselSlider.builder(
-                  itemCount: _productController.productList.length,
+                  itemCount: _productController.products.length,
                   itemBuilder: (
                     context,
                     index,
@@ -83,7 +83,7 @@ class _ProductSliderState extends State<ProductSlider> {
                               width: MediaQuery.of(context).size.width,
                               child: Image(
                                 image: AssetImage(
-                                    'assets/images/${_productController.productList[index].mulImg}'),
+                                    '${_productController.products[index].image}'),
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -104,7 +104,7 @@ class _ProductSliderState extends State<ProductSlider> {
             Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children:
-                    List.generate(_productController.productList.length, (idx) {
+                    List.generate(_productController.products.length, (idx) {
                   return activeIndex == idx ? ActiveDot() : InactiveDot();
                 }))
           ],
